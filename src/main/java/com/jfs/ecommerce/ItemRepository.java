@@ -1,6 +1,5 @@
-package com.jfs.ecommerce.repository;
+package com.jfs.ecommerce;
 
-import com.jfs.ecommerce.Model.Item;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ItemRepository extends CrudRepository<Item, Integer> {
