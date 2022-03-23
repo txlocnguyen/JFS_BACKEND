@@ -33,14 +33,14 @@ public class ItemController
     {
         return itemService.findById( id );
     }
-    @CrossOrigin
     @PutMapping( "/{id}" )
-    public Item update( @PathVariable int id, @RequestParam(required = false) String name,
-                        @RequestParam(required = false) String description,
-                        @RequestParam(required = false) String imageUrl)
+    public Item update( @RequestBody ItemDto itemDto, @PathVariable Integer id )
     {
-        itemService.updateItem(id, name, description, imageUrl);
-        return itemService.findById( id );
+        Item item = itemService.findById( id );
+        item.setName( itemDto.getName() );
+        item.setDescription( itemDto.getDescription() );
+        item.setImageUrl( itemDto.getImageUrl() );
+        return itemService.save( item );
     }
     @CrossOrigin
     @DeleteMapping( "/{id}" )
