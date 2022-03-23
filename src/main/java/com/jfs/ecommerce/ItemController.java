@@ -33,6 +33,7 @@ public class ItemController
     {
         return itemService.findById( id );
     }
+    @CrossOrigin
     @PutMapping( "/{id}" )
     public Item update( @RequestBody ItemDto itemDto, @PathVariable Integer id )
     {
