@@ -40,12 +40,19 @@ public class ItemController
         Item item = itemService.findById( id );
         if(itemDto.getName() != null){
             item.setName( itemDto.getName() );
+        } else{
+            item.setName(item.getName());
         }
         if(itemDto.getDescription() != null){
             item.setDescription( itemDto.getDescription() );
+        }else{
+            item.setDescription(item.getDescription());
         }
         if(itemDto.getImageUrl() != null){
             item.setImageUrl( itemDto.getImageUrl() );
+        }
+        else{
+            item.setImageUrl( item.getImageUrl() );
         }
         return itemService.save( item );
     }
