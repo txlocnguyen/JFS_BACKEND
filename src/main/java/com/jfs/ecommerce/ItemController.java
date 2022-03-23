@@ -38,17 +38,17 @@ public class ItemController
     public Item update( @RequestBody ItemDto itemDto, @PathVariable Integer id )
     {
         Item item = itemService.findById( id );
-        if(itemDto.getName() != null){
+        if(itemDto.getName() != ""){
             item.setName( itemDto.getName() );
         } else{
             item.setName(item.getName());
         }
-        if(itemDto.getDescription() != null){
+        if(itemDto.getDescription() != ""){
             item.setDescription( itemDto.getDescription() );
         }else{
             item.setDescription(item.getDescription());
         }
-        if(itemDto.getImageUrl() != null){
+        if(itemDto.getImageUrl() != ""){
             item.setImageUrl( itemDto.getImageUrl() );
         }
         else{
